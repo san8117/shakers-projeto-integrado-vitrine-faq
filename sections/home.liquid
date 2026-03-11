@@ -1,0 +1,59 @@
+<body>
+  <section>
+    {% render 'header' %}
+    <main>
+      <div class="banner-container">
+        
+
+        <div class="swiper">
+      
+          <div class="swiper-wrapper">
+
+          {%for images-banner in section.blocks%}
+            <div class="slider">
+                <img src="{{images-banner.settings.Image-banner |  image_url: width: nil }}" alt="{{images-banner.settings.Image-banner.alt}}" width="auto" height="auto">
+            </div>
+          {% endfor %}
+         
+          </div>
+      
+          <div class="swiper-pagination"></div>
+
+         
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+       
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+    </main>
+  </section>
+</body>
+
+{% schema  %} 
+    {
+        "name": "home",
+        "settings": [{
+            "type": "collection",
+            "id": "collection-list",
+            "label": "Coleção de Produtos"
+        }],
+        "blocks": [
+            {
+                "name": "Banner",
+                "type": "image",
+                "limit": 3,
+                "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "Image-banner",
+                    "label": "Imagem Banner",
+                    
+                }
+            ]
+            }
+        
+        ]
+    }
+{% endschema %}
