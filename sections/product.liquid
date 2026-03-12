@@ -1,7 +1,7 @@
 <section>
   <main>
     <div class="produdct-content">
-        <div data-product-id-variant="{{product.variants | json}}"></div>
+      <div data-product-id-variant="{{product.variants | json}}"></div>
       <img
         src="{{product.featured_image |  image_url: width: 150, height: 150}}"
         alt="{{product.featured_image.alt}}"
@@ -15,6 +15,7 @@
       {% endif %}
 
       <p>{{ product.description }}</p>
+      
     </div>
 
     <div class="options-container">
@@ -38,9 +39,13 @@
     </div>
 
     <div class="btn-add-cart">
-          <button data-btn-add-cart>Adicionar ao Carrinho</button>
+      <button data-btn-add-cart>Adicionar ao Carrinho</button>
     </div>
   </main>
+
+  <section>
+    {% render 'product-faq' %}
+  </section>
 </section>
 
 {% schema %}

@@ -1,0 +1,21 @@
+{% assign faq_item = product.metafields.custom.product_faq.value %}
+
+
+
+<section>
+    <main>
+        {% if faq_item != blank %}
+           {% for faq_options in faq_item %}
+            {% assign question = faq_options.pergunta %}
+            {% assign answer = faq_options.resposta %}
+
+            <div class="question-answer">
+                <h2>{{question}}</h2>
+                <p>{{answer |  metafield_tag}}</p>
+            </div>
+            
+           {% endfor %}         
+        {% endif %}
+
+    </main>
+</section>
