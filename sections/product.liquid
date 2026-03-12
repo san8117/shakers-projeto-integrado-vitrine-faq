@@ -1,0 +1,50 @@
+<section>
+  <main>
+    <div class="produdct-content">
+        <div data-product-id-variant="{{product.variants | json}}"></div>
+      <img
+        src="{{product.featured_image |  image_url: width: 150, height: 150}}"
+        alt="{{product.featured_image.alt}}"
+        width="auto"
+        height="auto"
+      >
+      <h1>{{ product.title }}</h1>
+      <h2>Preço:{{ product.price | money }}</h2>
+      {% if product.compare_at_price > product.price %}
+        <h2><b>Descontão:</b>{{ product.price | money }}</h2>
+      {% endif %}
+
+      <p>{{ product.description }}</p>
+    </div>
+
+    <div class="options-container">
+      <div class="color-option">
+        <h3>Cor:</h3>
+        <select class="option1">
+          {% for option1 in product.options_with_values[0].values %}
+            <option value="{{option1}}">{{ option1 }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="size-option">
+        <h3>Tamanho:</h3>
+        <select class="size-option">
+          {% for option2 in product.options_with_values[1].values %}
+            <option value="{{option2}}">{{ option2 }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-add-cart">
+          <button data-btn-add-cart>Adicionar ao Carrinho</button>
+    </div>
+  </main>
+</section>
+
+{% schema %}
+{
+  "name": "product"
+}
+{% endschema %}
