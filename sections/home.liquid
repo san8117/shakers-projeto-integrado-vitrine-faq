@@ -1,5 +1,8 @@
-{% assign collection_section = section.settings.collection_list  %}
-
+{{ 'slider-home.js' | asset_url | script_tag }}
+{{ 'slider-home.css' | asset_url | stylesheet_tag }}
+{% assign collection_section = section.settings.collection_list %}
+{% assign button_section = section.settings['button-cta'] %}
+{% assign button_section_text = section.settings['text-button-cta'] %}
 
 
 <body>
@@ -10,21 +13,22 @@
         <div class="swiper">
           <div class="swiper-wrapper">
             {% for info-banner in section.blocks %}
-              <div class="slider">
+              <div class="swiper-slide">
                 <img
                   src="{{info-banner.settings.Image-banner |  image_url: width: nil }}"
                   alt="{{info-banner.settings.Image-banner.alt}}"
                   width="auto"
-                  height="auto">
+                  height="auto"
+                >
               </div>
               <div class="content-banner">
-    
-                    <h1 class="banner-description">{{info-banner.settings.title-banner}}</h1>
+                <h1 class="banner-description">{{ info-banner.settings['title-banner'] }}</h1>
 
-                <p class="banner-description">{{info-banner.settings.description-banner}}</p>
-                
-                <button class="button-banner"><a href="{{info-banner.settings.button-banner}}">{{info-banner.settings.btn-text}}</a></button>
+                <p class="banner-description">{{ info-banner.settings['description-banner'] }}</p>
 
+                <button class="button-banner">
+                  <a href="{{info-banner.settings.button-banner}}">{{ info-banner.settings['btn-text'] }}</a>
+                </button>
               </div>
             {% endfor %}
           </div>
@@ -38,19 +42,26 @@
         </div>
       </div>
 
-
-      <div class="colletion- container">
-
-      <div class="collection-products">
-        {%for products in collection_section.products%}
-            <img src="{{products.featured_image |  image_url: width: 100 , height: 100 }}" alt="{{products.featured_image.alt}}" width="auto" height="auto">
-            <h2>{{products.title}}</h2>
-            <h2>{{products.price |  money}}</h2>
-            <button><a href="{{products.url}}">Compre Agora</a></button>
-           
-        {% endfor %}
+      <div class="colletion-container">
+        <div class="collection-products">
+          {% for products in collection_section.products %}
+            <img
+              src="{{products.featured_image |  image_url: width: 100 , height: 100 }}"
+              alt="{{products.featured_image.alt}}"
+              width="auto"
+              height="auto"
+            >
+            <h2>{{ products.title }}</h2>
+            <h2>{{ products.price | money }}</h2>
+            <button><a href="{{products.url}}">Saiba Mais</a></button>
+          {% endfor %}
+        </div>
       </div>
 
+      <div class="button-cta">
+        <button>
+          <a href="{{button_section}}">{{button_section_text}}</a>
+        </button>
       </div>
     </main>
   </section>
@@ -64,13 +75,25 @@
       "type": "collection",
       "id": "collection_list",
       "label": "Coleção de Produtos"
+    },
+
+        {
+      "type": "text",
+      "id": "text-button-cta",
+      "label": "Botão de Compra"
+    },
+
+    {
+      "type": "url",
+      "id": "button-cta",
+      "label": "Botão de Compra"
     }
   ],
   "blocks": [
     {
       "name": "Banner",
       "type": "image",
-      "limit": 3,
+
       "settings": [
         {
           "type": "image_picker",
@@ -100,7 +123,7 @@
           "type": "url",
           "id": "button-banner",
           "label": "Link do Botão"
-        },
+        }
       ]
     }
   ]
