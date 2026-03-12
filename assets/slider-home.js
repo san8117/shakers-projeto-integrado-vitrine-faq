@@ -15,9 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
     prevEl: '.swiper-button-prev',
   },
 
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
+
   
   });
 });
+
+
+
+

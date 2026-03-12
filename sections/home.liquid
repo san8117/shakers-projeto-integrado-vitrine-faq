@@ -15,7 +15,7 @@
             {% for info-banner in section.blocks %}
               <div class="swiper-slide">
                 <img
-                  src="{{info-banner.settings.Image-banner |  image_url: width: nil }}"
+                  src="{{info-banner.settings.Image-banner |  image_url: width: 100 }}"
                   alt="{{info-banner.settings.Image-banner.alt}}"
                   width="auto"
                   height="auto"
@@ -38,7 +38,7 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
 
-          <div class="swiper-scrollbar"></div>
+       
         </div>
       </div>
 
