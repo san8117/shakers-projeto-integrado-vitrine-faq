@@ -7,7 +7,6 @@
 
 <body>
   <section>
-    {% render 'header' %}
     <main>
       <div class="banner-container">
         <div class="swiper">
@@ -22,12 +21,12 @@
                 >
               </div>
               <div class="content-banner">
-                <h1 class="banner-description">{{ info-banner.settings['title-banner'] }}</h1>
+                <h1 class="banner-description">{{ info-banner.settings.title-banner }}</h1>
 
-                <p class="banner-description">{{ info-banner.settings['description-banner'] }}</p>
+                <p class="banner-description">{{ info-banner.settings.description-banner }}</p>
 
                 <button class="button-banner">
-                  <a href="{{info-banner.settings.button-banner}}">{{ info-banner.settings['btn-text'] }}</a>
+                  <a href="{{info-banner.settings.button-banner}}">{{ info-banner.settings.btn-text }}</a>
                 </button>
               </div>
             {% endfor %}

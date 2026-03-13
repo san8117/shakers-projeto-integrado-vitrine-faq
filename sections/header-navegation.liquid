@@ -1,0 +1,35 @@
+<header>
+    <nav>
+        <ul>
+            <li><a href="/pages/home">Home</a></li>
+            <li><a href="/products/camiseta-arsenal-23-24">Produtos</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+{% schema %}
+{
+  "name": "header-navegation",
+  "settings": [
+    {
+      "type": "color",
+      "id": "color-background",
+      "label": "Cor de Fundo"
+    },
+
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "Cor do Texto"
+    }
+
+ 
+  ],
+
+  "presets": [{
+    "name": "header-navegation"
+  }]
+
+}
+{% endschema %}

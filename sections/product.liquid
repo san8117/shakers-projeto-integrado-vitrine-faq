@@ -1,7 +1,9 @@
+{{'product.js' |  asset_url |  script_tag}}
+
 <section>
   <main>
     <div class="produdct-content">
-      <div data-product-id-variant="{{product.variants | json}}"></div>
+    
       <img
         src="{{product.featured_image |  image_url: width: 150, height: 150}}"
         alt="{{product.featured_image.alt}}"
@@ -15,7 +17,7 @@
       {% endif %}
 
       <p>{{ product.description }}</p>
-      
+
     </div>
 
     <div class="options-container">
@@ -30,7 +32,7 @@
 
       <div class="size-option">
         <h3>Tamanho:</h3>
-        <select class="size-option">
+        <select class="option2">
           {% for option2 in product.options_with_values[1].values %}
             <option value="{{option2}}">{{ option2 }}</option>
           {% endfor %}
@@ -47,6 +49,8 @@
     {% render 'product-faq' %}
   </section>
 </section>
+
+
 
 {% schema %}
 {
