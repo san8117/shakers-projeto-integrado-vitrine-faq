@@ -1,6 +1,7 @@
 {% assign faq_item = product.metafields.custom.product_faq.value %}
 
 
+
 <section>
     <main>
         {% if faq_item != blank %}
@@ -18,3 +19,16 @@
 
     </main>
 </section>
+
+
+{% schema %}
+{
+  "name": "product-faq",
+  "settings": [],
+
+  "presets": [{
+    "name": "product-faq"
+  }]
+
+}
+{% endschema %}
