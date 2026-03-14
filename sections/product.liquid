@@ -3,15 +3,18 @@
 <section>
   <main>
     <div class="produdct-content">
+
+  
     
       <img
+      class="product-image"
         src="{{product.featured_image |  image_url: width: 150, height: 150}}"
         alt="{{product.featured_image.alt}}"
         width="auto"
         height="auto"
       >
       <h1>{{ product.title }}</h1>
-      <h2>Preço:{{ product.price | money }}</h2>
+      <h2 class="product-price"> Preço:{{ product.price | money }}</h2>
       {% if product.compare_at_price > product.price %}
         <h2><b>Descontão:</b>{{ product.price | money }}</h2>
       {% endif %}
@@ -40,12 +43,13 @@
       </div>
     </div>
 
-    <div class="btn-add-cart">
-      <button data-btn-add-cart>Adicionar ao Carrinho</button>
+    <div class="button-container" data-json='{{product.variants | json}}'>
+      <button type="button" class="btn-add-cart" data-btn-add-cart>Adicionar ao Carrinho</button>
     </div>
   </main>
-
 </section>
+
+
 
 
 
