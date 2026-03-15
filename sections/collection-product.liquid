@@ -1,0 +1,54 @@
+{% assign collection_section = section.settings.collection_list %}
+{% assign button_section = section.settings['button-cta'] %}
+{% assign button_section_text = section.settings['text-button-cta'] %}
+
+
+<body>
+  <section>
+    <main>
+
+      </div>
+
+      <div class="colletion-container">
+        <div class="collection-products">
+          {% for products in collection_section.products %}
+            <img
+              src="{{products.featured_image |  image_url: width: 100 , height: 100 }}"
+              alt="{{products.featured_image.alt}}"
+              width="auto"
+              height="auto"
+            >
+            <h2>{{ products.title }}</h2>
+            <h2>{{ products.price | money }}</h2>
+            <button><a href="{{products.url}}">Saiba Mais</a></button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="button-cta">
+        <button>
+          <a href="{{button_section}}">{{button_section_text}}</a>
+        </button>
+      </div>
+    </main>
+  </section>
+</body>
+
+{% schema %}
+{
+  "name": "collection-product",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection_list",
+      "label": "Coleção de Produtos"
+    }
+  ],
+
+  "presets": [
+    {
+        "name": "collection-product"
+    }
+  ]
+}
+{% endschema %}
