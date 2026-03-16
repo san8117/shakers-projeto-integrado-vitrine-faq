@@ -1,0 +1,19 @@
+<style>
+{{ section.settings.font_text | font_face }}
+
+    header {
+        background-color: {{ section.settings.color_background }};
+       
+    }
+
+    ul li a {
+        color: {{ section.settings.text_color }};
+        font-family: {{ section.settings.font_text.family}};
+        font-weight: {{ section.settings.font_text.weight}};
+        font-size: {{section.settings.size_text}}px;
+    }
+
+
+
+
+</style>

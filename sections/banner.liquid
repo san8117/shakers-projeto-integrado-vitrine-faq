@@ -3,25 +3,23 @@
 <body>
     <section>
         <main>
-                  <div class="banner-container">
+      <div class="banner-container">
         <div class="swiper">
           <div class="swiper-wrapper">
-            {% for info-banner in section.blocks %}
+            {% for block in section.blocks %}
               <div class="swiper-slide">
                 <img
-                  src="{{info-banner.settings.Image-banner |  image_url: width: 100 }}"
-                  alt="{{info-banner.settings.Image-banner.alt}}"
-                  width="auto"
-                  height="auto"
-                >
+                  src="{{ block.settings.image_banner |  image_url}}"
+                  alt="{{ block.settings.image_banner.alt}}">
               </div>
               <div class="content-banner">
-                <h1 class="banner-description">{{ info-banner.settings.title-banner }}</h1>
+                <h1 class="banner-title">{{ block.settings.title_banner}}</h1>
+                <p class="banner-description">{{ block.settings.description_banner }}</p>
+                </div>
 
-                <p class="banner-description">{{ info-banner.settings.description-banner }}</p>
-
-                <button class="button-banner">
-                  <a href="{{info-banner.settings.button-banner}}">{{ info-banner.settings.btn-text }}</a>
+              <div class="button-banner">
+                   <button>
+                  <a href="{{ block.settings.btn_banner}}">{{ block.settings.btn_text}}</a>
                 </button>
               </div>
             {% endfor %}
@@ -51,32 +49,57 @@
       "settings": [
         {
           "type": "image_picker",
-          "id": "Image-banner",
+          "id": "image_banner",
           "label": "Imagem Banner"
         },
 
         {
-          "type": "text",
-          "id": "title-banner",
-          "label": "Texto do Banner"
+          "type": "richtext",
+          "id": "title_banner",
+          "default": "<p> PROJETO INTEGRADO</p>",
+          "label": "Digite o titulo do Banner"
         },
 
         {
           "type": "richtext",
-          "id": "description-banner",
-          "label": "Descrição do Banner"
+          "id": "description_banner",
+          "default": "<p> TESTE DESCRIÇÃO BANNER</p>",
+          "label": "Digite a descrição do banner"
         },
 
         {
           "type": "text",
-          "id": "btn-text",
+          "id": "btn_text",
           "label": "Texto do Botão"
         },
 
         {
           "type": "url",
-          "id": "button-banner",
+          "id": "btn_banner",
           "label": "Link do Botão"
+        },
+
+        {
+          "type": "header",
+          "content": "Cores"
+        },
+
+        {
+          "type": "color",
+          "id" : "color_text",
+          "label": "Cores do Texto"
+        },
+
+           {
+          "type": "color",
+          "id" : "color_button_text",
+          "label": "Cor do texto do botão"
+        },
+
+                {
+          "type": "color",
+          "id" : "color_button",
+          "label": "Cores do Botão"
         }
       ]
     }

@@ -1,35 +1,66 @@
-<header>
-    <nav>
-        <ul>
-            <li><a href="/pages/home">Home</a></li>
-            <li><a href="/products/camiseta-arsenal-23-24">Produtos</a></li>
-        </ul>
-    </nav>
-</header>
+{{ 'header-navegation.css' | asset_url | stylesheet_tag }}
+{% render 'variables-header' %}
 
+<header>
+  <nav>
+    <ul>
+      <li><a href="/pages/home">Home</a></li>
+      <li><a href="/products/camiseta-arsenal-23-24">Produtos</a></li>
+    </ul>
+  </nav>
+</header>
 
 {% schema %}
 {
   "name": "header-navegation",
   "settings": [
     {
+      "type": "header",
+      "content": "Cores da barra de Busca"
+    },
+    {
       "type": "color",
-      "id": "color-background",
-      "label": "Cor de Fundo"
+      "id": "color_background",
+      "label": "Cor de Fundo",
+      "default": "#000"
     },
 
     {
       "type": "color",
-      "id": "text-color",
-      "label": "Cor do Texto"
-    }
+      "id": "text_color",
+      "label": "Cor do Texto",
+      "default": "#fff"
+    },
 
- 
+    {
+      "type": "header",
+      "content": "Fonte de texto da barra de pesquisa"
+    },
+
+    {
+      "type": "font_picker",
+      "id": "font_text",
+      "label": "Escolha a fonte para a sua barra de pesquisa",
+      "default": "arial_n7"
+    },
+
+    {
+      "type": "range",
+      "id": "size_text",
+      "label": "Tamanho do Texto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+
   ],
 
-  "presets": [{
-    "name": "header-navegation"
-  }]
-
+  "presets": [
+    {
+      "name": "header-navegation"
+    }
+  ]
 }
 {% endschema %}
