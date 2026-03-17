@@ -8,17 +8,16 @@
   width:900px;
   height:500px;
   position: relative;
-  
-}
 
+
+ 
+}
+  
 .swiper-slide{
   display:flex;
   justify-content:center;
   align-items:center;
 }
-
-
-
 
 .products{
   display:flex;
@@ -31,6 +30,13 @@
   border-radius:3px;
   gap:0.5rem;
   position: relative;
+}
+
+.products img {
+    width: 210px;
+    height: 180px;
+    border-radius: 5px;
+    
 }
 
 

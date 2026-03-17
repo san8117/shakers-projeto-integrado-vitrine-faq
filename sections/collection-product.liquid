@@ -16,7 +16,7 @@
               <div class="products">
                 <img
                   class="featured_image"
-                  src="{{ products.featured_image| image_url: width: 100, height: 100 }}"
+                  src="{{ products.featured_image| image_url }}"
                   alt="{{ products.featured_image.alt }}"
                 >
 
@@ -178,7 +178,7 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "default": 16
+      "default": 12
     },
 
     {
@@ -194,7 +194,7 @@
       "max": 100,
       "step": 2,
       "unit": "px",
-      "default": 12
+      "default": 70
     },
     {
       "type": "range",
@@ -204,8 +204,20 @@
       "max": 100,
       "step": 2,
       "unit": "px",
-      "default": 20
-    }
+      "default": 40
+    },
+
+    {
+      "type": "header",
+      "content": "Configurações das setas"
+    },
+
+    {
+      "type": "color",
+      "id": "arrow_color_collection",
+      "label": "Configurações das setas",
+      "default": "#007aff"
+    },
   ],
 
   "presets": [
