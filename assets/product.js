@@ -32,13 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const price = (variant.price / 100).toFixed(2)
         priceElement.textContent = `Preço: R$ ${price}`
 
-     
-        if(variant.featured_image){
-            imageElement.src = "https:" + variant.featured_image.src
-        }
-
-        console.log("Variant selecionada:", variant)
-
     }
 
     async function addCart() {

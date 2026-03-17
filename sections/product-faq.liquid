@@ -1,4 +1,5 @@
 {% assign faq_item = product.metafields.custom.product_faq.value %}
+{% render 'variables-product-faq' %}
 
 
 
@@ -9,9 +10,9 @@
             {% assign question = faq_options.pergunta %}
             {% assign answer = faq_options.resposta %}
 
-            <div class="question-answer">
-                <h2>{{question}}</h2>
-                <p>{{answer |  metafield_tag}}</p>
+            <div class="question-answer-container">
+                <h2 class="question-faq">{{question}}</h2>
+                <p class="answer-faq">{{answer |  metafield_tag}}</p>
             </div>
             
            {% endfor %}         
@@ -24,11 +25,45 @@
 {% schema %}
 {
   "name": "product-faq",
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Configuração das perguntas"
 
-  "presets": [{
+    },
+
+    {
+      "type": "color",
+      "id": "product_faq_question_color",
+      "label": "Escolha uma cor para as perguntas ",
+      "default": "#000"
+    },
+
+    {
+      "type": "font_picker",
+      "id": "font_product_faq",
+      "label": "Escolha a fonte para as perguntas",
+      "default": "arial_n7"
+    },
+
+     {
+      "type": "range",
+      "id": "size_text_product_faq",
+      "label": "Tamanho do texto do para as perguntas",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+  ],
+
+  "presets": [
+  {
     "name": "product-faq"
-  }]
+    
+  }
+]
 
 }
 {% endschema %}

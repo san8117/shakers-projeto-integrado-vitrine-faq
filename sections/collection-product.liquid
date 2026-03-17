@@ -17,10 +17,10 @@
                 <img
                   class="featured_image"
                   src="{{ products.featured_image| image_url }}"
-                  alt="{{ products.featured_image.alt }}"
+                  alt="{{ products.featured_image.alt }}" width="auto" height="auto"
                 >
 
-                <h1>{{ products.title }}</h2>
+                <h1>{{ products.title }}</h1>
                 <h2>{{ products.price | money }}</h2>
                 {% if products.compare_at_price > products.price %}
                   <h2><b>Descontão:</b>{{ products.price | money }}</h2>

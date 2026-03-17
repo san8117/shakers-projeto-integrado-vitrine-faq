@@ -1,0 +1,23 @@
+<style>
+   {{ section.settings.font_product_faq | font_face }}
+   /*{{ section.settings.font_price_product | font_face }}
+   {{ section.settings.font_description_product | font_face }}
+   {{ section.settings.font_first_option_product | font_face }}*/
+  
+
+
+      .question-faq  {
+          font-family: {{ section.settings.font_product_faq.family }};
+          font-weight: {{ section.settings.font_product_faq.weight }};
+          font-size: {{ section.settings.size_text_product_faq }}px;
+          color: {{ section.settings.product_faq_question_color }};
+      }
+
+      /*.answer-faq {
+          font-family: {{ section.settings.font_price_product.family }};
+          font-weight: {{ section.settings.font_price_product.weight }};
+          font-size: {{ section.settings.size_text_product_price }}px;
+          color: {{ section.settings.color_price_product }};
+      }*/
+      
+</style>
