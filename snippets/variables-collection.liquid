@@ -1,0 +1,45 @@
+<style>
+ {{ section.settings.font_text_btn_collection | font_face }}
+ {{ section.settings.font_product_name_collection | font_face }}
+ {{ section.settings.font_price_name_collection | font_face }}
+
+ 
+    .products {
+        background-color: {{ section.settings.bg_color_collection }};
+        box-shadow:{{ section.settings.box_shadow_color_collection }} 2px 1px 2px 2px;
+    }
+
+    .products h1 {
+        font-family: {{ section.settings.font_product_name_collection.family }};
+        font-weight: {{ section.settings.font_product_name_collection.weight }};
+        font-size: {{ section.settings.size_text_product_collection }}px;
+        color: {{ section.settings.product_name_color_collection }};
+    }
+
+    .products h2 {
+        font-family: {{ section.settings.font_price_name_collection.family }};
+        font-weight: {{ section.settings.font_price_name_collection.weight }};
+        font-size: {{ section.settings.size_text_price_collection }}px;
+        color: {{ section.settings.price_name_color_collection }};
+     }
+    .products button {
+        background-color: {{ section.settings.btn_color_collection }};
+        width: {{ section.settings.button_padding_y }}px;
+        height: {{ section.settings.button_padding_x }}px;
+        border: 2px solid {{section.settings.btn_text_color_border }};
+       
+    }
+
+     .products button a {
+        font-family: {{ section.settings.font_text_btn_collection.family }};
+        font-weight: {{ section.settings.font_text_btn_collection.weight }};
+        font-size: {{ section.settings.size_text_btn_collection }}px;
+        color: {{ section.settings.btn_text_color_collection }};
+      
+        
+    }
+
+
+
+
+</style>

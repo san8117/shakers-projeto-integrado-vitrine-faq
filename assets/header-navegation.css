@@ -9,10 +9,12 @@ ul {
     height: 100%;
 }
 
-ul li a {
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.5s ease-in-out;
+ul li a{
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.5s ease-in-out;
 }
 
+ul li a:hover{
+  transform: scale(1.08);
+}

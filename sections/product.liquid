@@ -15,9 +15,7 @@
       >
       <h1>{{ product.title }}</h1>
       <h2 class="product-price"> Preço:{{ product.price | money }}</h2>
-      {% if product.compare_at_price > product.price %}
-        <h2><b>Descontão:</b>{{ product.price | money }}</h2>
-      {% endif %}
+      
 
       <p>{{ product.description }}</p>
 

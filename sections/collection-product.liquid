@@ -1,35 +1,45 @@
+{{ 'collection-product.css' | asset_url | stylesheet_tag }}
+{{ 'slider-collection.js' | asset_url | script_tag }}
+{% render 'variables-collection' %}
+
 {% assign collection_section = section.settings.collection_list %}
 {% assign button_section = section.settings['button-cta'] %}
 {% assign button_section_text = section.settings['text-button-cta'] %}
 
-
 <body>
   <section>
     <main>
-
-      </div>
-
-      <div class="colletion-container">
-        <div class="collection-products">
+      <div class="colletion-container swiper">
+        <div class="swiper-wrapper">
           {% for products in collection_section.products %}
-            <img
-              src="{{products.featured_image |  image_url: width: 100 , height: 100 }}"
-              alt="{{products.featured_image.alt}}"
-              width="auto"
-              height="auto"
-            >
-            <h2>{{ products.title }}</h2>
-            <h2>{{ products.price | money }}</h2>
-            <button><a href="{{products.url}}">Saiba Mais</a></button>
+            <div class="swiper-slide">
+              <div class="products">
+                <img
+                  class="featured_image"
+                  src="{{ products.featured_image| image_url: width: 100, height: 100 }}"
+                  alt="{{ products.featured_image.alt }}"
+                >
+
+                <h1>{{ products.title }}</h2>
+                <h2>{{ products.price | money }}</h2>
+                {% if products.compare_at_price > products.price %}
+                  <h2><b>Descontão:</b>{{ products.price | money }}</h2>
+                {% endif %}
+
+                <button>
+                  <a href="{{ products.url }}">Saiba Mais</a>
+                </button>
+              </div>
+            </div>
           {% endfor %}
         </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
 
-      <div class="button-cta">
-        <button>
-          <a href="{{button_section}}">{{button_section_text}}</a>
-        </button>
-      </div>
+      <div class="swiper-scrollbar"></div>
     </main>
   </section>
 </body>
@@ -39,15 +49,168 @@
   "name": "collection-product",
   "settings": [
     {
+      "type": "header",
+      "content": "Configurações da coleção"
+    },
+
+    {
       "type": "collection",
       "id": "collection_list",
-      "label": "Coleção de Produtos"
+      "label": "Escolha a coleção de Produtos"
+    },
+
+    {
+      "type": "color",
+      "id": "bg_color_collection",
+      "label": "Escolha uma cor para o fundo da coleção",
+      "default": "#fff"
+    },
+
+    {
+      "type": "color",
+      "id": "box_shadow_color_collection",
+      "label": "Escolha uma cor para a sombra da coleção",
+      "default": "rgb(191, 189, 189)"
+    },
+
+    {
+      "type": "header",
+      "content": "Configurações do nome do produto"
+    },
+
+    {
+      "type": "color",
+      "id": "product_name_color_collection",
+      "label": "Escolha uma cor para o nome do produto da coleção",
+      "default": "#000"
+    },
+
+    {
+      "type": "font_picker",
+      "id": "font_product_name_collection",
+      "label": "Escolha a fonte para o nome do produto",
+      "default": "arial_n7"
+    },
+
+     {
+      "type": "range",
+      "id": "size_text_product_collection",
+      "label": "Tamanho do texto do nome do produto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+
+    {
+      "type": "header",
+      "content": "Configurações do preço do produto"
+    },
+
+    {
+      "type": "color",
+      "id": "price_name_color_collection",
+      "label": "Escolha uma cor para o preço do produto da coleção",
+      "default": "#000"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_price_name_collection",
+      "label": "Escolha a fonte para o preço do produto",
+      "default": "arial_n7"
+    },
+
+      {
+      "type": "range",
+      "id": "size_text_price_collection",
+      "label": "Tamanho do texto do preço do produto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+
+    {
+      "type": "header",
+      "content": "Cores do Botão"
+    },
+
+    {
+      "type": "color",
+      "id": "btn_color_collection",
+      "label": "Mude a cor do botão",
+      "default": "#000"
+    },
+
+    {
+      "type": "color",
+      "id": "btn_text_color_collection",
+      "label": "Mude a cor do texto do botão",
+      "default": "#fff"
+    },
+
+    {
+      "type": "color",
+      "id": "btn_text_color_border",
+      "label": "Mude a cor da borda do botão",
+      "default": "#fff"
+    },
+
+    {
+      "type": "header",
+      "content": "Tamanhos do texto do botão"
+    },
+
+    {
+      "type": "font_picker",
+      "id": "font_text_btn_collection",
+      "label": "Escolha a fonte para o texto do botão",
+      "default": "arial_n7"
+    },
+
+    {
+      "type": "range",
+      "id": "size_text_btn_collection",
+      "label": "Tamanho do Texto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+
+    {
+      "type": "header",
+      "content": "Tamanhos do Botão"
+    },
+
+    {
+      "type": "range",
+      "id": "button_padding_y",
+      "label": "Altura interna do botão",
+      "min": 6,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_x",
+      "label": "Largura interna do botão",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 20
     }
   ],
 
   "presets": [
     {
-        "name": "collection-product"
+      "name": "collection-product"
     }
   ]
 }
