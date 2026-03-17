@@ -1,49 +1,55 @@
 {{'product.js' |  asset_url |  script_tag}}
+{{'product.css' |  asset_url |  stylesheet_tag}}
+{% render 'variables-product' %}
 
 <section>
   <main>
-    <div class="produdct-content">
+    <div class="product-container">
 
   
     
-      <img
-      class="product-image"
-        src="{{product.featured_image |  image_url: width: 150, height: 150}}"
-        alt="{{product.featured_image.alt}}"
-        width="auto"
-        height="auto"
-      >
-      <h1>{{ product.title }}</h1>
-      <h2 class="product-price"> Preço:{{ product.price | money }}</h2>
-      
-
-      <p>{{ product.description }}</p>
-
-    </div>
-
-    <div class="options-container">
-      <div class="color-option">
-        <h3>Cor:</h3>
-        <select class="option1">
-          {% for option1 in product.options_with_values[0].values %}
-            <option value="{{option1}}">{{ option1 }}</option>
-          {% endfor %}
-        </select>
+      <div class="product-image">
+        <img
+        class="product-image"
+          src="{{product.featured_image |  image_url: width: 150, height: 150}}"
+          alt="{{product.featured_image.alt}}"
+          width="auto"
+          height="auto"
+        >
       </div>
 
-      <div class="size-option">
-        <h3>Tamanho:</h3>
-        <select class="option2">
-          {% for option2 in product.options_with_values[1].values %}
-            <option value="{{option2}}">{{ option2 }}</option>
-          {% endfor %}
-        </select>
+      <div class="product-content-container">
+
+          <h1>{{ product.title }}</h1>
+          <h2 class="product-price"> Preço:{{ product.price | money }}</h2>
+          
+          <p>{{ product.description }}</p>
+
+      <div class="options-container">
+        <div class="color-option">
+          <h3>Cor:</h3>
+          <select class="option1">
+            {% for option1 in product.options_with_values[0].values %}
+              <option value="{{option1}}">{{ option1 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="size-option">
+          <h3>Tamanho:</h3>
+          <select class="option2">
+            {% for option2 in product.options_with_values[1].values %}
+              <option value="{{option2}}">{{ option2 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+        
+        <div class="button-container" data-json='{{product.variants | json}}'>
+        <button type="button" class="btn-add-cart" data-btn-add-cart>Adicionar ao Carrinho</button>
+        </div>
       </div>
     </div>
-
-    <div class="button-container" data-json='{{product.variants | json}}'>
-      <button type="button" class="btn-add-cart" data-btn-add-cart>Adicionar ao Carrinho</button>
-    </div>
+    </main>
   </main>
 </section>
 
@@ -53,6 +59,98 @@
 
 {% schema %}
 {
-  "name": "product"
+  "name": "product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Estilização do nome do produto"
+    },
+
+    {
+      "type": "color",
+      "id": "color_name_product",
+      "label": "Escolha uma cor para o nome do produto",
+      "default": "#000"
+    },
+
+     {
+      "type": "font_picker",
+      "id": "font_name_product",
+      "label": "Escolha a fonte para o nome do produto",
+      "default": "arial_n7"
+    },
+
+      {
+      "type": "range",
+      "id": "size_text_product_name",
+      "label": "Tamanho do texto do nome do produto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+
+    {
+      "type": "header",
+      "content": "Estilização do preço do produto"
+    },
+
+    {
+      "type": "color",
+      "id": "color_price_product",
+      "label": "Escolha uma cor para o preço do produto",
+      "default": "#000"
+    },
+
+     {
+      "type": "font_picker",
+      "id": "font_price_product",
+      "label": "Escolha a fonte para o preço do produto",
+      "default": "arial_n7"
+    },
+
+      {
+      "type": "range",
+      "id": "size_text_product_price",
+      "label": "Tamanho do texto do preço do produto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+
+    {
+      "type": "header",
+      "content": "Estilização da descrição do produto"
+    },
+
+    {
+      "type": "color",
+      "id": "color_description_product",
+      "label": "Escolha uma cor para a descrição do produto",
+      "default": "#000"
+    },
+
+     {
+      "type": "font_picker",
+      "id": "font_description_product",
+      "label": "Escolha a fonte para a descrição do produto",
+      "default": "arial_n7"
+    },
+
+      {
+      "type": "range",
+      "id": "size_text_product_description",
+      "label": "Tamanho do texto da descrição do produto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+  ]
 }
+
 {% endschema %}

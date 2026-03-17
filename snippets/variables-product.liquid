@@ -1,0 +1,31 @@
+<style>
+   {{ section.settings.font_name_product | font_face }}
+   {{ section.settings.font_price_product | font_face }}
+   {{ section.settings.font_description_product | font_face }}
+
+
+      .product-content-container h1 {
+          font-family: {{ section.settings.font_name_product.family }};
+          font-weight: {{ section.settings.font_name_product.weight }};
+          font-size: {{ section.settings.size_text_product_name }}px;
+          color: {{ section.settings.color_name_product }};
+      }
+
+      .product-content-container h2 {
+          font-family: {{ section.settings.font_price_product.family }};
+          font-weight: {{ section.settings.font_price_product.weight }};
+          font-size: {{ section.settings.size_text_product_price }}px;
+          color: {{ section.settings.color_price_product }};
+      }
+
+       .product-content-container p {
+          font-family: {{ section.settings.font_description_product.family }};
+          font-weight: {{ section.settings.font_description_product.weight }};
+          font-size: {{ section.settings.size_text_product_description }}px;
+          color: {{ section.settings.color_description_product }};
+       }
+     
+
+
+      
+</style>
