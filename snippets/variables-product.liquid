@@ -2,6 +2,17 @@
    {{ section.settings.font_name_product | font_face }}
    {{ section.settings.font_price_product | font_face }}
    {{ section.settings.font_description_product | font_face }}
+   {{ section.settings.font_first_option_product | font_face }}
+   {{ section.settings.font_second_option_product | font_face }}
+   {{ section.settings.font_text_btn_product | font_face }}
+
+    
+    .product-content-container {
+          background-color: {{ section.settings.bg_product_container }};
+          box-shadow: {{section.settings.box_shadow_product_container }} 2px 1px 2px 2px;
+          
+        
+    }
 
 
       .product-content-container h1 {
@@ -24,7 +35,33 @@
           font-size: {{ section.settings.size_text_product_description }}px;
           color: {{ section.settings.color_description_product }};
        }
-     
+
+        .color-option {
+          font-family: {{ section.settings.font_first_option_product.family }};
+          font-weight: {{ section.settings.font_first_option_product.weight }};
+          font-size: {{ section.settings.size_text_product_first_option }}px;
+          color: {{ section.settings.color_first_option_product }};
+        }
+
+         .size-option {
+          font-family: {{ section.settings.font_second_option_product.family }};
+          font-weight: {{ section.settings.font_second_option_product.weight }};
+          font-size: {{ section.settings.size_text_product_second_option }}px;
+          color: {{ section.settings.color_second_option_product }};
+
+         }
+
+         .btn-add-cart {
+          background-color: {{ section.settings.btn_color_product }};
+          width: {{ section.settings.button_padding_product_y }}px;
+          height: {{ section.settings.button_padding_product_x }}px;
+          border: 2px solid {{section.settings.btn_text_color_border_product }};
+
+          font-family: {{ section.settings.font_text_btn_product.family }};
+          font-weight: {{ section.settings.font_text_btn_product.weight }};
+          font-size: {{ section.settings.size_text_btn_product }}px;
+          color: {{ section.settings.btn_text_color_product }};
+         }
 
 
       

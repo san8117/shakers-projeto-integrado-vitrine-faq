@@ -23,8 +23,14 @@
 
 .product-content-container {
    display: flex;
+   align-items: center;
+   justify-content: center;
    flex-direction: column;
+   border-radius: 5px;
+   width: 350px;
+   height: 200px;
    gap: 0.3rem;
+  
 }
 
 .options-container {
@@ -33,6 +39,14 @@
     gap: 2rem;
 }
 
+
+
 .button-container {
     padding-top: 1rem;
+    
+    
+}
+
+.btn-add-cart {
+    border-radius: 5px;
 }

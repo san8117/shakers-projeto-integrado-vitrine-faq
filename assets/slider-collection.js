@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const swiper = new Swiper('.colletion-container', {
         slidesPerView: 3,
-        spaceBetween: 5,
+        spaceBetween: 20,
         direction: 'horizontal',
         loop: true,
 
