@@ -1,4 +1,5 @@
 {% assign faq_item = product.metafields.custom.product_faq.value %}
+
 {% render 'variables-product-faq' %}
 
 
@@ -12,7 +13,10 @@
 
             <div class="question-answer-container">
                 <h2 class="question-faq">{{question}}</h2>
-                <p class="answer-faq">{{answer |  metafield_tag}}</p>
+                <div class="answer-faq">
+                  <p >{{answer |  metafield_tag}}</p>
+                </div>
+                <hr>
             </div>
             
            {% endfor %}         
@@ -55,6 +59,37 @@
       "step": 1,
       "unit": "px",
       "default": 16
+    },
+
+    {
+      "type": "header",
+      "content": "Configuração das respostas"
+
+    },
+
+    {
+      "type": "color",
+      "id": "product_faq_answer_color",
+      "label": "Escolha uma cor para as respostas ",
+      "default": "#000"
+    },
+
+    {
+      "type": "font_picker",
+      "id": "font_product_faq_answer",
+      "label": "Escolha a fonte para as respostas",
+      "default": "arial_n7"
+    },
+
+     {
+      "type": "range",
+      "id": "size_text_product_faq_answer",
+      "label": "Tamanho do texto do para as respostas",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
     },
   ],
 
