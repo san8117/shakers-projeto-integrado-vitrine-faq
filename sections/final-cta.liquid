@@ -2,7 +2,7 @@
 {% render 'variables-button-cta' %}
 
 <div class="content-cta">
-  <img src="{{ section.settings.image_cta |  image_url: width: 100  }}" alt="{{ section.settings.image_cta.alt }}" width="auto" height="auto">
+  <img src="{{ section.settings.image_cta |  image_url}}" alt="{{ section.settings.image_cta.alt }}" width="auto" height="auto">
   <button>
     <a href="{{ section.settings.btn_cta }}">{{ section.settings.text_btn_cta }}</a>
   </button>
@@ -103,20 +103,20 @@
           "id": "button__cta_padding_y",
           "label": "Altura interna do botão",
           "min": 6,
-          "max": 100,
+          "max": 200,
           "step": 2,
           "unit": "px",
-          "default": 70
+          "default": 80
         },
         {
           "type": "range",
           "id": "button_cta_padding_x",
           "label": "Largura interna do botão",
           "min": 10,
-          "max": 100,
+          "max": 200,
           "step": 2,
           "unit": "px",
-          "default": 40
+          "default": 30
         }
 
 
