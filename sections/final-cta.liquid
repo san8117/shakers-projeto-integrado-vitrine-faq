@@ -1,0 +1,45 @@
+<div class="content-cta">
+  <img src="{{ section.settings.image_cta |  image_url: width: 100  }}" alt="{{ section.settings.image_cta.alt }}" width="auto" height="auto">
+  <button>
+    <a href="{{ section.settings.btn_cta }}">{{ section.settings.text_btn_cta }}</a>
+  </button>
+</div>
+
+{% schema %}
+{
+  "name": "final-cta",
+  "settings": [
+
+        {
+          "type": "header",
+          "content": "Configurações da Seção"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_cta",
+          "label": "Adicione uma imagem do produto"
+        },
+        
+        {
+          "type": "text",
+          "id": "text_btn_cta",
+          "label": "Adicione o texto para o botão"
+        },
+
+        {
+          "type": "url",
+          "id": "btn_cta",
+          "label": "Adicione o link para o botão"
+        }
+
+
+        
+  ],
+  
+  "presets": [
+    {
+      "name": "final-cta"
+    }
+  ]
+}
+{% endschema %}
