@@ -1,41 +1,41 @@
 {{ 'slider-banner.js' | asset_url | script_tag }}
 {{ 'slider-banner.css' | asset_url | stylesheet_tag }}
-<body>
-    <section>
-       <main>
-      <div class="banner-container">
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              <div class="swiper-slide">
-                <img
-                  src="{{ block.settings.image_banner |  image_url}}"
-                  alt="{{ block.settings.image_banner.alt}}">
-              </div>
-              <div class="content-banner">
-                <h1 class="banner-title">{{ block.settings.title_banner}}</h1>
-                <p class="banner-description">{{ block.settings.description_banner }}</p>
-                </div>
+{% render 'variables-banner' %}
 
-              <div class="button-banner">
-                   <button>
-                  <a href="{{ block.settings.btn_banner}}">{{ block.settings.btn_text}}</a>
+<section>
+  <main>
+    <div class="banner-container banner-container--{{ section.id }}">
+      <div class="swiper">
+        <div class="swiper-wrapper ">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+              <img
+                src="{{ block.settings.image_banner |  image_url}}"
+                alt="{{ block.settings.image_banner.alt}} "
+                width="auto"
+                height="auto"
+              >
+              <div class="content-banner content-banner--{{ block.id }}">
+                <h1>{{ block.settings.title_banner }}</h1>
+                {{ block.settings.description_banner }}
+              </div>
+              {% if block.settings.btn_banner != blank %}
+                <button class="button-banner">
+                  <a href="{{ block.settings.btn_banner}}">{{ block.settings.btn_text }}</a>
                 </button>
-              </div>
-            {% endfor %}
-          </div>
-
-          <div class="swiper-pagination"></div>
-
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-
-       
+              {% endif %}
+            </div>
+          {% endfor %}
         </div>
-        </main>
-    </section>
-</body>
 
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </main>
+</section>
 
 {% schema %}
 {
@@ -50,14 +50,43 @@
         {
           "type": "image_picker",
           "id": "image_banner",
-          "label": "Imagem Banner"
+          "label": "Adicione a imagem para o banner"
         },
 
         {
-          "type": "richtext",
+          "type": "header",
+          "content": "Configurações do Título do Banner"
+        },
+
+        {
+          "type": "text",
           "id": "title_banner",
-          "default": "<p> PROJETO INTEGRADO</p>",
           "label": "Digite o titulo do Banner"
+        },
+
+        {
+          "type": "color",
+          "id": "color_text_title_banner",
+          "label": "Escolha uma cor para o título banner",
+          "default": "#000"
+        },
+
+        {
+          "type": "font_picker",
+          "id": "font_text_title_banner",
+          "label": "Escolha a fonte para o título do banner",
+          "default": "arial_n7"
+        },
+
+        {
+          "type": "range",
+          "id": "size_text_title_banner",
+          "label": "Escolha o tamanho do texto do título do produto",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 20
         },
 
         {
@@ -79,26 +108,10 @@
           "label": "Link do Botão"
         },
 
-        {
-          "type": "header",
-          "content": "Cores"
-        },
 
         {
           "type": "color",
-          "id" : "color_text",
-          "label": "Cores do Texto"
-        },
-
-           {
-          "type": "color",
-          "id" : "color_button_text",
-          "label": "Cor do texto do botão"
-        },
-
-         {
-          "type": "color",
-          "id" : "color_button",
+          "id": "color_button",
           "label": "Cores do Botão"
         }
       ]
@@ -107,7 +120,7 @@
 
   "presets": [
     {
-        "name": "banner"
+      "name": "banner"
     }
   ]
 }

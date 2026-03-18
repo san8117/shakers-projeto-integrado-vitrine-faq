@@ -1,0 +1,17 @@
+<style>
+    
+    {% for block in section.blocks %}
+        {{ block.settings.font_text_title_banner | font_face }}
+          .content-banner--{{ block.id }} h1 {
+          font-family: {{ block.settings.font_text_title_banner.family }};
+          font-weight: {{ block.settings.font_text_title_banner.weight }};
+          font-size: {{ block.settings.size_text_title_banner }}px;
+          color: {{ block.settings.color_text_title_banner}};
+        }
+        {% endfor %}
+   
+      
+</style>
+
+
+ 

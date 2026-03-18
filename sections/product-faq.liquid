@@ -1,8 +1,6 @@
-{% assign faq_item = product.metafields.custom.product_faq.value %}
-
+{{'product-faq.css' |  asset_url | stylesheet_tag}}
 {% render 'variables-product-faq' %}
-
-
+{% assign faq_item = product.metafields.custom.product_faq.value %}
 
 <section>
     <main>
@@ -90,6 +88,19 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+
+    {
+      "type": "header",
+      "content": "Configuração de fundo da seção"
+
+    },
+
+    {
+      "type": "color",
+      "id": "product_faq_bg_color",
+      "label": "Escolha uma cor para o fundo da seção ",
+      "default": "#fff"
     },
   ],
 
