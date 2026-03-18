@@ -1,0 +1,21 @@
+<style>
+   {{ section.settings.font_text_button_cta | font_face }}
+ 
+      .content-cta button {
+          background-color: {{ section.settings.bg_button_cta }};
+          width: {{ section.settings.button__cta_padding_y }}px;
+          height: {{ section.settings.button_cta_padding_x }}px;
+          border: 2px solid {{section.settings.color_border_button_cta }};
+
+      }
+
+       .content-cta button a {
+          font-family: {{ section.settings.font_text_button_cta.family }};
+          font-weight: {{ section.settings.font_text_button_cta.weight }};
+          font-size: {{ section.settings.size_text_button_cta }}px;
+          color: {{ section.settings.color_text_button_cta }};
+          text-decoration: none;
+
+
+      }
+</style>

@@ -1,3 +1,6 @@
+{{ 'button-cta.css' | asset_url | stylesheet_tag }}
+{% render 'variables-button-cta' %}
+
 <div class="content-cta">
   <img src="{{ section.settings.image_cta |  image_url: width: 100  }}" alt="{{ section.settings.image_cta.alt }}" width="auto" height="auto">
   <button>
@@ -30,7 +33,92 @@
           "type": "url",
           "id": "btn_cta",
           "label": "Adicione o link para o botão"
+        },
+
+        {
+          "type": "header",
+          "content": "Cor do texto do botão"
+        },
+
+        {
+          "type": "color",
+          "id": "color_text_button_cta",
+          "label": "Selecione a cor para o texto do botão",
+          "default": "#fff"
+
+        },
+
+        {
+          "type": "header",
+          "content": "Configurações do texto do botão"
+        },
+
+         {
+          "type": "font_picker",
+          "id": "font_text_button_cta",
+          "label": "Escolha a fonte para o texto do botão",
+          "default": "arial_n7"
+        },
+
+        {
+          "type": "range",
+          "id": "size_text_button_cta",
+          "label": "Escolha o tamanho do texto do botão",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 14
+        },
+
+
+
+        {
+          "type": "header",
+          "content": "Cores do Botão"
+        },
+
+        {
+          "type": "color",
+          "id": "bg_button_cta",
+          "label": "Adicione a cor de fundo do botão",
+          "default": "#000"
+        },
+
+        {
+          "type": "color",
+          "id": "color_border_button_cta",
+          "label": "Selecione a cor para a borda do botão",
+          "default": "#000"
+
+        },        
+        
+        {
+          "type": "header",
+          "content": "Tamanho do Botão"
+        },
+
+         {
+          "type": "range",
+          "id": "button__cta_padding_y",
+          "label": "Altura interna do botão",
+          "min": 6,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 70
+        },
+        {
+          "type": "range",
+          "id": "button_cta_padding_x",
+          "label": "Largura interna do botão",
+          "min": 10,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 40
         }
+
 
 
         
