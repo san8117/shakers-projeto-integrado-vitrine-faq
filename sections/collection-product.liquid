@@ -2,16 +2,18 @@
 {{ 'slider-collection.js' | asset_url | script_tag }}
 {% render 'variables-collection' %}
 
+
+
 {% assign collection_section = section.settings.collection_list %}
 
 
 <body>
   <section>
     <main>
-      <div class="colletion-container swiper">
+      <div class="colletion-container swiper collection-swiper">
         <div class="swiper-wrapper">
           {% for products in collection_section.products %}
-            <div class="swiper-slide">
+            <div class="swiper-slide collection-swiper-slide">
               <div class="products">
                 <img
                   class="featured_image"
@@ -32,11 +34,11 @@
             </div>
           {% endfor %}
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev collection-prev"></div>
+        <div class="swiper-button-next collection-next"></div>
       </div>
 
-      <div class="swiper-scrollbar"></div>
+      
     </main>
   </section>
 </body>

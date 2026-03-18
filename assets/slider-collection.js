@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 
-    const swiper = new Swiper('.colletion-container', {
-        slidesPerView: 3,
+    const swiperCollection = new Swiper ('.colletion-container', {
+        slidesPerView: 1,
         spaceBetween: 20,
         direction: 'horizontal',
         loop: true,
+        
 
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.collection-button-next',
+            prevEl: '.collection-button-prev',
         },
 
 
