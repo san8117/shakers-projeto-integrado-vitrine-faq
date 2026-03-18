@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const buttonCart = document.querySelector(".btn-add-cart")
 
-    const imageElement = document.querySelector(".product-image")
+   
     const priceElement = document.querySelector(".product-price")
 
 
