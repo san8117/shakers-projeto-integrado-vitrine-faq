@@ -2,11 +2,35 @@
     
     {% for block in section.blocks %}
         {{ block.settings.font_text_title_banner | font_face }}
-          .content-banner--{{ block.id }} h1 {
+        {{ block.settings.font_text_description_banner | font_face }}
+        {{ block.settings.font_text_btn_banner | font_face }}
+        
+        
+        .content-banner--{{ block.id }} h1 {
           font-family: {{ block.settings.font_text_title_banner.family }};
           font-weight: {{ block.settings.font_text_title_banner.weight }};
           font-size: {{ block.settings.size_text_title_banner }}px;
           color: {{ block.settings.color_text_title_banner}};
+        }
+        .description_banner--{{ block.id }} {
+          font-family: {{ block.settings.font_text_description_banner.family }};
+          font-weight: {{ block.settings.font_text_description_banner.weight }};
+          font-size: {{ block.settings.size_text_description_banner }}px;
+          color: {{ block.settings.color_text_description_banner}};
+        }
+        .button-banner--{{ block.id }} {
+         background-color: {{ block.settings.btn_color_banner }};
+          width: {{ block.settings.button__banner_padding_y }}px;
+          height: {{ block.settings.button_banner_padding_x }}px;
+          border: 2px solid {{ block.settings.btn_banner_color_border }};
+        }
+
+       .button-banner--{{ block.id }} a {
+          font-family: {{ block.settings.font_text_btn_banner.family }};
+          font-weight: {{ block.settings.font_text_btn_banner.weight }};
+          font-size: {{ block.settings.size_text_btn_banner }}px;
+          color: {{ block.settings.btn_text_color_banner }};
+          text-decoration: none;
         }
         {% endfor %}
    

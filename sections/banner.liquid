@@ -4,7 +4,7 @@
 
 <section>
   <main>
-    <div class="banner-container banner-container--{{ section.id }}">
+    <div class="banner-container ">
       <div class="swiper">
         <div class="swiper-wrapper ">
           {% for block in section.blocks %}
@@ -17,10 +17,12 @@
               >
               <div class="content-banner content-banner--{{ block.id }}">
                 <h1>{{ block.settings.title_banner }}</h1>
-                {{ block.settings.description_banner }}
+                <div class="description_banner description_banner--{{ block.id }}">
+                  {{ block.settings.description_banner }}
+                </div>
               </div>
               {% if block.settings.btn_banner != blank %}
-                <button class="button-banner">
+                <button class="button-banner button-banner--{{ block.id }}">
                   <a href="{{ block.settings.btn_banner}}">{{ block.settings.btn_text }}</a>
                 </button>
               {% endif %}
@@ -90,10 +92,45 @@
         },
 
         {
+          "type": "header",
+          "content": "Configurações da Descrição do Banner"
+        },
+
+        {
           "type": "richtext",
           "id": "description_banner",
-          "default": "<p> TESTE DESCRIÇÃO BANNER</p>",
+          "default": "<p> Descrição do banner</p>",
           "label": "Digite a descrição do banner"
+        },
+
+        {
+          "type": "color",
+          "id": "color_text_description_banner",
+          "label": "Escolha uma cor para a descrição banner",
+          "default": "#000"
+        },
+
+        {
+          "type": "font_picker",
+          "id": "font_text_description_banner",
+          "label": "Escolha a fonte para a descrição do banner",
+          "default": "arial_n7"
+        },
+
+        {
+          "type": "range",
+          "id": "size_text_description_banner",
+          "label": "Escolha o tamanho do texto da descrição do produto",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 14
+        },
+
+        {
+          "type": "header",
+          "content": "Configurações do Botão"
         },
 
         {
@@ -108,11 +145,79 @@
           "label": "Link do Botão"
         },
 
+        {
+          "type": "header",
+          "content": "Cores do Botão"
+        },
 
         {
           "type": "color",
-          "id": "color_button",
-          "label": "Cores do Botão"
+          "id": "btn_color_banner",
+          "label": "Mude a cor do botão",
+          "default": "#000"
+        },
+
+        {
+          "type": "color",
+          "id": "btn_text_color_banner",
+          "label": "Mude a cor do texto do botão",
+          "default": "#fff"
+        },
+
+        {
+          "type": "color",
+          "id": "btn_banner_color_border",
+          "label": "Mude a cor da borda do botão",
+          "default": "#fff"
+        },
+
+        {
+          "type": "header",
+          "content": "Tamanhos do texto do botão"
+        },
+
+        {
+          "type": "font_picker",
+          "id": "font_text_btn_banner",
+          "label": "Escolha a fonte para o texto do botão",
+          "default": "arial_n7"
+        },
+
+        {
+          "type": "range",
+          "id": "size_text_btn_banner",
+          "label": "Tamanho do Texto",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "default": 12
+        },
+
+        {
+          "type": "header",
+          "content": "Tamanhos do Botão"
+        },
+
+        {
+          "type": "range",
+          "id": "button__banner_padding_y",
+          "label": "Altura interna do botão",
+          "min": 6,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 70
+        },
+        {
+          "type": "range",
+          "id": "button_banner_padding_x",
+          "label": "Largura interna do botão",
+          "min": 10,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 40
         }
       ]
     }
