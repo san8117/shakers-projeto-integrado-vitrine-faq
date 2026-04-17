@@ -1,0 +1,48 @@
+{% assign product_arsenal = all_products[section.settings.product_arsenal] %}
+
+<div>
+    {% if product_arsenal %}
+        <h2>{{ product_arsenal.title }}</h2>
+        <img src="{{ product_arsenal.featured_image |  image_url: width: 300 }}" alt="{{ product_arsenal.title }}" width="300" height="300">
+        <p>{{ product_arsenal.description }}</p>
+        <a href="{{ product_arsenal.url }}">Ver Produto</a>
+    {% else %}
+        <p>Selecione um produto para exibir nesta seção.</p>
+    {% endif %}
+</div>
+
+<style>
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div a {
+       background-color: aquamarine;
+       color: rgb(219, 219, 219);
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+</style>
+
+{% schema %}
+{
+  "name": "product-arsenal",
+  "settings": [
+    {
+        "type": "product",
+        "id": "product_arsenal",
+        "label": "Producto da Seção "
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "product-arsenal"
+    }
+  ]
+}
+{% endschema %}

@@ -6,9 +6,8 @@
   <main>
     <div class="product-container">
 
-  
-    
-      <div class="product-image">
+      {% if product.available %}
+        <div class="product-image">
         <img
         class="product-image"
           src="{{product.featured_image |  image_url}}"
@@ -48,7 +47,11 @@
         <button type="button" class="btn-add-cart" data-btn-add-cart>Adicionar ao Carrinho</button>
         </div>
       </div>
-    </div>
+   
+      {% endif %}
+     </div>  
+    
+      
   </main>
 </section>
 
